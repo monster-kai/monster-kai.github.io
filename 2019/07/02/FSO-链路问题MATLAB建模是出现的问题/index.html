@@ -30,7 +30,7 @@
 <meta property="og:description" content="1.用MATLAB画3D图坐标的几种常见方式 用mesh [X, Y] = meshgrid(x, y); %这个函数是很神奇的，很容易把他的X，Y的坐标弄混掉 123x = 0:5;y = 0:1;[X, Y] = meshgrid(x, y);  X = 0    1    2    3    4    50    1    2    3    4    50    1    2    3">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="c:/Users/Chris/Desktop/blog/source/_posts/1562075062473.png">
-<meta property="og:updated_time" content="2019-07-02T14:03:45.882Z">
+<meta property="og:updated_time" content="2019-07-02T14:16:54.149Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="FSO 链路问题MATLAB建模是出现的问题">
 <meta name="twitter:description" content="1.用MATLAB画3D图坐标的几种常见方式 用mesh [X, Y] = meshgrid(x, y); %这个函数是很神奇的，很容易把他的X，Y的坐标弄混掉 123x = 0:5;y = 0:1;[X, Y] = meshgrid(x, y);  X = 0    1    2    3    4    50    1    2    3    4    50    1    2    3">
@@ -213,6 +213,8 @@
 
 <p>mesh为网格线，meshc为网格线加等高线contour</p>
 <p>当然，也可以只plot等高线用contour(X,Y,Z,20)</p>
+<p>注意：<strong>若提示警告: 创建或更新 Surface 时出错*</strong><br> <strong>属性  CData 的值中有错误数组的形状或大小错误</strong></p>
+<p>是因为后边的20，可能数据量太小，不能画出20条等高线，所以产生的警告</p>
 <h3 id="2-matlab中的例程"><a href="#2-matlab中的例程" class="headerlink" title="2.matlab中的例程"></a>2.matlab中的例程</h3><p>因为有特殊函数Meiger M的存在，所以不能直接用矩阵点乘计算来求Z，下面附上matlab中的例程</p>
 <figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[X,Y] = <span class="built_in">meshgrid</span>(<span class="number">-8</span>:<span class="number">.5</span>:<span class="number">8</span>);</span><br><span class="line">R = <span class="built_in">sqrt</span>(X.^<span class="number">2</span> + Y.^<span class="number">2</span>) + <span class="built_in">eps</span>;</span><br><span class="line">Z = <span class="built_in">sin</span>(R)./R;</span><br><span class="line">mesh(X,Y,Z)</span><br></pre></td></tr></table></figure>
 
@@ -234,7 +236,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-07-02T14:03:45.882Z" itemprop="dateUpdated">2019-07-02 22:03:45</time>
+    最后更新时间：<time datetime="2019-07-02T14:16:54.149Z" itemprop="dateUpdated">2019-07-02 22:16:54</time>
 </span><br>
 
 
@@ -519,5 +521,6 @@ var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 
 
 
+    <script type="text/javascript" src="/js/clicklove.js"></script>
 </body>
 </html>
